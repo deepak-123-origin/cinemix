@@ -14,16 +14,16 @@ window.UPCOMING_RELEASES = [
     imageAlt: "Misty stone castle",
   },
   {
-    title: "Neon Harbor: Zero",
-    release: "RELEASING DEC 25",
-    badge: "✦ Holiday Special",
+    title: "Spider-Man: Brand New Day",
+    release: "NOW AVAILABLE",
+    badge: "✦ Marvel Exclusive",
     badgeClass: "teal-badge",
-    meta: "ACTION · DOLBY ATMOS",
+    meta: "ACTION · ADVENTURE · SCI-FI",
     description:
-      "The high-octane origin story of the cybernetic detective in futuristic Tokyo.",
+      "Peter Parker returns as Spider-Man, fighting crime alone in a world that has forgotten him. As new threats emerge and his extraordinary powers begin to evolve, Peter faces his most personal challenge yet.",
     image:
-      "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Neon-futuristic city",
+      "https://image.tmdb.org/t/p/original/2vXgjHbqHncCuT3kdQLgsXc5Fmh.jpg",
+    imageAlt: "Spider-Man: Brand New Day movie poster"
   },
   {
     title: "Oggy & Cockroaches S4",
