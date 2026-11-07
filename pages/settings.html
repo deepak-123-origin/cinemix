@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Settings | CINEMIX</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("cx_theme") || "dark";
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../account/account.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/site-ui.css" />
+  </head>
+  <body data-root="0" data-account-area="true">
+    <!-- NAVBAR START -->
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="logo" href="../index.html">CINE<span>MIX</span></a>
+        <nav class="links" id="links">
+          <a class="nav-search" href="search.html" aria-label="Search"
+            ><svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" /></svg></a
+          ><a href="../index.html">Home</a
+          ><a href="search.html?cat=Movies">Movies</a
+          ><a href="search.html?cat=Anime">Anime</a
+          ><a href="search.html?cat=Cartoons">Cartoons</a
+          ><a href="search.html?cat=Series">Series</a
+          ><a href="search.html">Search</a>
+          <a class="btn ghost guest-only" href="../account/auth.html#login"
+            >Login</a
+          ><a class="btn guest-only" href="../account/auth.html#signup"
+            >Sign Up</a
+          >
+          <div class="acct user-only" hidden>
+            <button class="avatar-btn" id="acctBtn" aria-label="Account menu">
+              <img id="navAvatar" alt="Account" />
+            </button>
+            <div class="menu" id="acctMenu" hidden>
+              <a href="../account/account.html">My Profile</a
+              ><a href="saved-videos.html">Saved Videos</a
+              ><a href="watch-history.html">Watch History</a
+              ><a href="../account/account.html#details">Personal Details</a
+              ><a href="settings.html">Settings</a
+              ><a href="help.html">Help &amp; Support</a
+              ><button id="logoutBtn">Logout</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="catbar">
+        <a href="../index.html">Home</a
+        ><a href="search.html?cat=Movies">Movies</a
+        ><a href="search.html?cat=Anime">Anime</a
+        ><a href="search.html?cat=Cartoons">Cartoons</a
+        ><a href="search.html?cat=Series">Series</a>
+      </div>
+    </header>
+    <!-- NAVBAR END -->
+    <main class="">
+      <div class="wrap narrow">
+        <h1>Settings</h1>
+        <section class="panel">
+          <h2>Appearance &amp; language</h2>
+          <div class="stack">
+            <label
+              >Theme<select id="setTheme">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select></label
+            >
+            <label
+              >Language<select id="setLang">
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Bengali</option>
+              </select></label
+            >
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Notifications</h2>
+          <label class="chk"
+            ><input type="checkbox" id="nNew" /> New releases</label
+          ><label class="chk"
+            ><input type="checkbox" id="nEmail" /> Email updates</label
+          >
+        </section>
+        <section class="panel">
+          <h2>Privacy</h2>
+          <label class="chk"
+            ><input type="checkbox" id="pHist" /> Record my watch history</label
+          >
+        </section>
+        <section class="panel">
+          <h2>Account security</h2>
+          <form class="stack" id="pwForm" novalidate>
+            <label
+              >Current password<input
+                type="password"
+                name="cur"
+                autocomplete="current-password" /></label
+            ><label
+              >New password (8+ characters)<input
+                type="password"
+                name="new"
+                autocomplete="new-password" /></label
+            ><button class="btn" type="submit">Change password</button>
+          </form>
+        </section>
+        <p class="msg" id="setMsg" role="status"></p>
+      </div>
+    </main>
+    <!-- FOOTER START -->
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-brand">
+          <div class="logo">CINE<span>MIX</span></div>
+          <p>All Entertainment. One Destination.</p>
+        </div>
+        <div class="foot-cols">
+          <div>
+            <h4>Explore</h4>
+            <a href="search.html?cat=Movies">Movies</a
+            ><a href="search.html?cat=Anime">Anime</a
+            ><a href="search.html?cat=Cartoons">Cartoons</a
+            ><a href="search.html?cat=Series">Series</a
+            ><a href="search.html?cat=Documentaries">Documentaries</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="about.html">About Us</a><a href="contact.html">Contact</a
+            ><a href="privacy-policy.html">Privacy Policy</a
+            ><a href="terms.html">Terms</a
+            ><a href="disclaimer.html">Disclaimer</a
+            ><a href="copyright.html">Copyright Policy</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="help.html">Help Center</a><a href="help.html#faq">FAQ</a
+            ><a href="contact.html#support">Support</a
+            ><a href="contact.html#feedback">Feedback</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="cookie-policy.html">Cookie Policy</a
+            ><a href="community-guidelines.html">Community Guidelines</a>
+          </div>
+          <div>
+            <h4>Follow CINEMIX</h4>
+            <span>Facebook</span><span>Instagram</span><span>X</span>
+          </div>
+        </div>
+        <p class="copy">Copyright &copy; 2026 CINEMIX. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script src="../videos/videos.js"></script>
+    <script src="../videos/episodes.js"></script>
+    <script src="../js/content-data.js"></script>
+    <script src="../account/auth-service.js"></script>
+    <script src="../js/content-navigation.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/account.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/history.js"></script>
+    <script src="../js/site-navigation.js"></script>
+  </body>
+</html>

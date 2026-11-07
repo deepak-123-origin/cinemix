@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CINEMIX - All Entertainment. One Destination.</title>
+    <meta
+      name="description"
+      content="Stream movies, series, anime, cartoons, and documentaries with CINEMIX. All entertainment, one destination."
+    />
+    <link rel="canonical" href="https://deepak-123-origin.github.io/cinemix/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://deepak-123-origin.github.io/cinemix/" />
+    <meta property="og:title" content="CINEMIX - All Entertainment. One Destination." />
+    <meta
+      property="og:description"
+      content="Stream movies, series, anime, cartoons, and documentaries. All entertainment, one destination."
+    />
+    <meta
+      property="og:image"
+      content="https://deepak-123-origin.github.io/cinemix/assets/images/cinemix-social-preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CINEMIX — All Entertainment. One Destination." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CINEMIX - All Entertainment. One Destination." />
+    <meta
+      name="twitter:description"
+      content="Stream movies, series, anime, cartoons, and documentaries. All entertainment, one destination."
+    />
+    <meta
+      name="twitter:image"
+      content="https://deepak-123-origin.github.io/cinemix/assets/images/cinemix-social-preview.png"
+    />
+
+    <!-- THEME INITIALIZATION START -->
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("cx_theme") || "dark";
+    </script>
+    <!-- THEME INITIALIZATION END -->
+
+    <!-- CSS FILES START -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS FILES END -->
+    <link rel="stylesheet" href="css/site-ui.css" />
+  </head>
+
+  <body data-root="1">
+    <!-- ================================================== -->
+    <!-- NAVBAR START -->
+    <!-- ================================================== -->
+
+    <header class="nav">
+      <div class="wrap nav-in">
+        <!-- LOGO START -->
+        <a class="logo" href="index.html">
+          <span class="home-logo-mark">C</span>
+          <span class="home-logo-word">CINE<span>MIX</span></span>
+        </a>
+        <!-- LOGO END -->
+
+        <!-- NAVIGATION LINKS START -->
+        <nav class="links" id="links">
+          <!-- SEARCH ICON -->
+          <a class="nav-search" href="pages/search.html" aria-label="Search">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
+            </svg>
+          </a>
+
+          <!-- MAIN NAVIGATION -->
+          <a href="index.html">Home</a>
+          <a href="pages/search.html?cat=Movies">Movies</a>
+          <a href="pages/search.html?cat=Anime">Anime</a>
+          <a href="pages/search.html?cat=Cartoons">Cartoons</a>
+          <a href="pages/search.html?cat=Series">Series</a>
+          <a href="pages/search.html?cat=Documentaries">Documentaries</a>
+        </nav>
+        <!-- NAVIGATION LINKS END -->
+
+        <div class="home-nav-controls">
+          <form class="home-search" action="pages/search.html" role="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-4-4"></path>
+            </svg>
+            <input
+              type="search"
+              name="q"
+              placeholder="Search movies, series..."
+              aria-label="Search movies and series"
+              autocomplete="off"
+              data-instant-search="true"
+            />
+          </form>
+          <a
+            class="home-watchlist-link"
+            href="pages/saved-videos.html"
+            aria-label="Saved videos"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 4.75A1.75 1.75 0 0 1 7.75 3h8.5A1.75 1.75 0 0 1 18 4.75V21l-6-3.75L6 21z"
+              ></path>
+            </svg>
+            <span id="watchlistBadge">0</span>
+          </a>
+          <div class="home-auth-actions guest-only">
+            <a class="btn ghost" href="account/auth.html#login">Login</a>
+            <a class="btn" href="account/auth.html#signup">Sign Up</a>
+          </div>
+          <div class="acct user-only" hidden>
+            <button class="avatar-btn" id="acctBtn" aria-label="Account menu">
+              <img id="navAvatar" alt="Account" />
+            </button>
+            <div class="menu" id="acctMenu" hidden>
+              <a href="account/account.html">My Profile</a>
+              <a href="pages/saved-videos.html">Saved Videos</a>
+              <a href="pages/watch-history.html">Watch History</a>
+              <a href="account/account.html#details">Personal Details</a>
+              <a href="pages/settings.html">Settings</a>
+              <a href="pages/help.html">Help &amp; Support</a>
+              <button id="logoutBtn">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY BAR START -->
+      <div class="catbar">
+        <a href="index.html">Home</a>
+        <a href="pages/search.html?cat=Movies">Movies</a>
+        <a href="pages/search.html?cat=Anime">Anime</a>
+        <a href="pages/search.html?cat=Cartoons">Cartoons</a>
+        <a href="pages/search.html?cat=Series">Series</a>
+        <a href="pages/search.html?cat=Documentaries">Documentaries</a>
+      </div>
+      <!-- CATEGORY BAR END -->
+    </header>
+
+    <!-- NAVBAR END -->
+
+    <!-- ================================================== -->
+    <!-- MAIN CONTENT START -->
+    <!-- ================================================== -->
+
+    <main class="home-main">
+      <section class="home-hero" id="hero">
+        <div class="home-hero-in">
+          <div class="home-hero-copy">
+            <span class="home-kicker"
+              ><span class="home-live-dot"></span
+              ><span aria-hidden="true">⚡</span> #1 STREAMING PLATFORM IN
+              2026</span
+            >
+            <h1>All<br />Entertainment.<br /><em>One Destination.</em></h1>
+            <p>
+              Stream unlimited movies, series, anime, cartoons, and
+              documentaries. Find something extraordinary to watch and pick up
+              right where you left off. High quality 4K UHD with Dolby Atmos
+              audio.
+            </p>
+            <div class="home-hero-tags" aria-label="CINEMIX highlights">
+              <span>🔥 &nbsp;50K+ Streamers</span
+              ><span>⭐ &nbsp;4.9 / 5 Rating</span
+              ><span>▣ &nbsp;4K Ultra HD</span>
+            </div>
+            <div class="home-hero-actions">
+              <a class="home-button home-button-primary" href="#featured"
+                ><span aria-hidden="true">◉</span> Explore Now</a
+              >
+              <a
+                class="home-button home-button-secondary home-save-button"
+                id="heroWatchlistBtn"
+                href="pages/watch-history.html"
+                ><span aria-hidden="true">＋</span> <span>Watchlist</span></a
+              >
+              <a class="home-button home-button-trailer" href="#trending"
+                ><span class="home-trailer-icon" aria-hidden="true">▶</span>
+                Play Trailer</a
+              >
+            </div>
+          </div>
+          <div class="home-spotlight">
+            <a class="hero-feat" id="heroFeat" href="#"></a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="home-section wrap"
+        aria-label="CINEMIX library statistics"
+      >
+        <div class="stats" id="stats"></div>
+      </section>
+
+      <section class="home-section wrap" id="categories">
+        <div class="home-section-heading">
+          <h2><span class="section-icon">✿</span> Browse by Category</h2>
+        </div>
+        <div class="cats" id="cats"></div>
+      </section>
+
+      <section class="home-section wrap" id="trending">
+        <div class="home-section-heading">
+          <h2><span class="section-icon">♨</span> Top 10 Trending This Week</h2>
+          <span class="home-heading-note">UPDATED TODAY</span>
+        </div>
+        <div class="trending-row" id="trendingRow"></div>
+      </section>
+
+      <section class="home-section wrap" id="featured">
+        <div class="home-section-heading">
+          <h2><span class="section-icon">▶</span> Featured Videos</h2>
+          <span class="home-filter-badge" id="activeFilterBadge"
+            >Showing: All</span
+          >
+        </div>
+        <div class="grid" id="featGrid"></div>
+      </section>
+
+      <section class="home-section wrap">
+        <div class="hub-grid home-hub">
+          <div class="home-hub-main">
+            <h2><span class="section-icon">▰</span> CINEMIX Video Hub</h2>
+            <div class="home-hub-list" id="exploreList"></div>
+          </div>
+          <aside class="home-hub-side">
+            <div class="home-side-group">
+              <h3><span class="section-icon">◴</span> Recently Watched</h3>
+              <div class="side-list" id="recentWatched"></div>
+            </div>
+            <div class="home-side-group">
+              <h3>
+                <span class="section-icon">✦</span> Recently Added
+                <a class="more" href="pages/search.html?sort=new">View All</a>
+              </h3>
+              <div class="side-list" id="recentAdded"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="home-section wrap" id="more-to-watch">
+        <div class="home-picks-heading">
+          <div>
+            <span class="home-picks-label"><i></i> CINEMIX PICKS</span>
+            <h2>More to <span>watch.</span></h2>
+            <p>Your next favourite is waiting to be discovered.</p>
+          </div>
+          <a href="pages/search.html">Explore collection <span>↗</span></a>
+        </div>
+        <div
+          class="poster-grid"
+          id="posterGrid"
+          tabindex="0"
+          aria-label="More to watch. Scroll horizontally to see more videos"
+        ></div>
+      </section>
+
+      <section class="home-section wrap" id="upcoming">
+        <div class="home-section-heading">
+          <h2>Upcoming Releases (Coming Soon)</h2>
+          <span class="home-filter-badge">EXCLUSIVE TEASERS</span>
+        </div>
+        <div
+          class="upcoming-grid"
+          id="upcomingGrid"
+          tabindex="0"
+          aria-label="Upcoming releases. Scroll horizontally to see more"
+        ></div>
+      </section>
+
+      <section class="home-section wrap" id="reviews">
+        <div class="home-section-heading">
+          <h2><span class="section-icon">●●</span> Community Reviews</h2>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="review-head">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=100&amp;q=80"
+                alt=""
+                loading="lazy"
+              />
+              <div><b>Aarav Sharma</b><small>● Verified Member</small></div>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p>
+              "CINEMIX streaming quality in 4K is breathtaking. The Oggy and
+              Doraemon nostalgia collection brings back childhood memories in
+              full HD!"
+            </p>
+          </article>
+          <article class="review-card">
+            <div class="review-head">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=100&amp;q=80"
+                alt=""
+                loading="lazy"
+              />
+              <div><b>Rohan Verma</b><small>● Verified Member</small></div>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p>
+              "The dark glassmorphism interface is slick and fluid. Watching
+              Paper Kingdoms with Dolby Atmos support is an unmatched
+              experience."
+            </p>
+          </article>
+          <article class="review-card">
+            <div class="review-head">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=100&amp;q=80"
+                alt=""
+                loading="lazy"
+              />
+              <div><b>Priya Patel</b><small>● Verified Member</small></div>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p>
+              "Super fast loading times and zero buffering. The Watchlist
+              counter feature makes tracking my favorite series effortless."
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-section wrap home-faq" id="faq">
+        <div class="faq-heading">
+          <span>HELP &amp; SUPPORT</span>
+          <h2>Frequently Asked <em>Questions</em></h2>
+          <p>
+            Find answers to the most common questions about CINEMIX. Everything
+            you need to know, all in one place.
+          </p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>
+              <span class="faq-icon">▣</span
+              ><span
+                ><small>DEVICES &amp; COMPATIBILITY</small>What devices are
+                supported by CINEMIX?</span
+              ><i>⌄</i>
+            </summary>
+            <p>
+              CINEMIX works on modern desktop and mobile browsers, including
+              Windows, macOS, iOS and Android devices.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-icon">▱</span
+              ><span
+                ><small>VIDEO QUALITY</small>How does 4K Ultra HD streaming work
+                on CINEMIX?</span
+              ><i>⌄</i>
+            </summary>
+            <p>
+              Video quality depends on the source video and your internet
+              connection. Playback is provided through the linked video player.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-icon">☁</span
+              ><span
+                ><small>OFFLINE EXPERIENCE</small>Can I download videos for
+                offline watching?</span
+              ><i>⌄</i>
+            </summary>
+            <p>
+              Videos play through their linked streaming provider; offline
+              downloads are not available on CINEMIX.
+            </p>
+          </details>
+        </div>
+        <p class="faq-support">
+          ⓘ &nbsp;Still have questions?
+          <a href="pages/help.html">We're here to help.</a>
+        </p>
+      </section>
+    </main>
+
+    <!-- MAIN CONTENT END -->
+
+    <!-- ================================================== -->
+    <!-- FOOTER START -->
+    <!-- ================================================== -->
+
+    <footer class="foot">
+      <div class="wrap">
+        <!-- FOOTER BRAND START -->
+        <div class="foot-brand">
+          <div class="logo">
+            <span class="home-logo-mark">C</span>
+            <span class="home-logo-word">CINE<span>MIX</span></span>
+          </div>
+
+          <p>All Entertainment. One Destination.</p>
+        </div>
+        <!-- FOOTER BRAND END -->
+        <!-- FOOTER COLUMNS START -->
+        <div class="foot-cols">
+          <!-- EXPLORE LINKS START -->
+          <div>
+            <h4>Explore</h4>
+
+            <a href="pages/search.html?cat=Movies">Movies</a>
+            <a href="pages/search.html?cat=Anime">Anime</a>
+            <a href="pages/search.html?cat=Cartoons">Cartoons</a>
+            <a href="pages/search.html?cat=Series">Series</a>
+            <a href="pages/search.html?cat=Documentaries">Documentaries</a>
+          </div>
+          <!-- EXPLORE LINKS END -->
+
+          <!-- INFORMATION LINKS START -->
+          <div>
+            <h4>Information</h4>
+
+            <a href="pages/about.html">About Us</a>
+            <a href="pages/contact.html">Contact</a>
+            <a href="pages/privacy-policy.html">Privacy Policy</a>
+            <a href="pages/terms.html">Terms</a>
+            <a href="pages/disclaimer.html">Disclaimer</a>
+            <a href="pages/copyright.html">Copyright Policy</a>
+          </div>
+          <!-- INFORMATION LINKS END -->
+
+          <!-- SUPPORT LINKS START -->
+          <div>
+            <h4>Support</h4>
+
+            <a href="pages/help.html">Help Center</a>
+            <a href="pages/help.html#faq">FAQ</a>
+            <a href="pages/contact.html#support">Support</a>
+            <a href="pages/contact.html#feedback">Feedback</a>
+          </div>
+          <!-- SUPPORT LINKS END -->
+
+          <!-- LEGAL LINKS START -->
+          <div>
+            <h4>Legal</h4>
+
+            <a href="pages/cookie-policy.html">Cookie Policy</a>
+            <a href="pages/community-guidelines.html">Community Guidelines</a>
+          </div>
+          <!-- LEGAL LINKS END -->
+
+          <!-- SOCIAL LINKS START -->
+          <div>
+            <h4>Follow CINEMIX</h4>
+
+            <div class="home-social">
+              <a href="https://www.facebook.com/" aria-label="Facebook">f</a>
+              <a href="https://www.instagram.com/" aria-label="Instagram">◎</a>
+              <a href="https://x.com/" aria-label="X">𝕏</a>
+            </div>
+          </div>
+          <!-- SOCIAL LINKS END -->
+        </div>
+        <!-- FOOTER COLUMNS END -->
+
+        <!-- COPYRIGHT START -->
+        <p class="copy">Copyright &copy; 2026 CINEMIX. All Rights Reserved.</p>
+        <!-- COPYRIGHT END -->
+      </div>
+    </footer>
+
+    <!-- FOOTER END -->
+
+    <!-- ================================================== -->
+    <!-- JAVASCRIPT FILES START -->
+    <!-- ================================================== -->
+
+    <script src="videos/videos.js"></script>
+    <script src="videos/episodes.js"></script>
+    <script src="videos/upcoming.js"></script>
+
+    <script src="js/content-data.js"></script>
+
+    <script src="account/auth-service.js"></script>
+
+    <script src="js/content-navigation.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/watchlist.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- JAVASCRIPT FILES END -->
+    <script src="js/site-navigation.js"></script>
+  </body>
+</html>

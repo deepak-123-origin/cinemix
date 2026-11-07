@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Search | CINEMIX</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("cx_theme") || "dark";
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/search.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/site-ui.css" />
+  </head>
+  <body class="search-page" data-root="0">
+    <!-- NAVBAR START -->
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="logo" href="../index.html">
+          <span class="home-logo-mark">C</span>
+          <span class="home-logo-word">CINE<span>MIX</span></span>
+        </a>
+        <nav class="links" id="links">
+          <a class="nav-search" href="search.html" aria-label="Search"
+            ><svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" /></svg></a
+          ><a href="../index.html">Home</a
+          ><a href="search.html?cat=Movies">Movies</a
+          ><a href="search.html?cat=Anime">Anime</a
+          ><a href="search.html?cat=Cartoons">Cartoons</a
+          ><a href="search.html?cat=Series">Series</a
+          ><a href="search.html?cat=Documentaries">Documentaries</a>
+        </nav>
+        <div class="home-nav-controls search-nav-controls">
+          <form
+            class="home-search search-nav-form"
+            id="searchForm"
+            action="search.html"
+            method="get"
+            role="search"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-4-4"></path>
+            </svg>
+            <input
+              id="q"
+              name="q"
+              type="search"
+              placeholder="Search movies, series..."
+              aria-label="Search movies and series"
+              aria-autocomplete="list"
+              aria-controls="sugg"
+              aria-expanded="false"
+              autocomplete="off"
+            />
+            <input id="categoryFilter" type="hidden" name="cat" />
+            <input id="sortFilter" type="hidden" name="sort" />
+            <ul
+              id="sugg"
+              class="sugg"
+              role="listbox"
+              aria-label="Search suggestions"
+              hidden
+            ></ul>
+          </form>
+          <a
+            class="home-watchlist-link"
+            href="saved-videos.html"
+            aria-label="Saved videos"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 4.75A1.75 1.75 0 0 1 7.75 3h8.5A1.75 1.75 0 0 1 18 4.75V21l-6-3.75L6 21z"
+              ></path>
+            </svg>
+            <span id="watchlistBadge">0</span>
+          </a>
+          <div class="home-auth-actions guest-only">
+            <a class="btn ghost" href="../account/auth.html#login">Login</a>
+            <a class="btn" href="../account/auth.html#signup">Sign Up</a>
+          </div>
+          <div class="acct user-only" hidden>
+            <button class="avatar-btn" id="acctBtn" aria-label="Account menu">
+              <img id="navAvatar" alt="Account" />
+            </button>
+            <div class="menu" id="acctMenu" hidden>
+              <a href="../account/account.html">My Profile</a>
+              <a href="saved-videos.html">Saved Videos</a>
+              <a href="watch-history.html">Watch History</a>
+              <a href="../account/account.html#details">Personal Details</a>
+              <a href="settings.html">Settings</a>
+              <a href="help.html">Help &amp; Support</a>
+              <button id="logoutBtn">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="catbar">
+        <a href="../index.html">Home</a
+        ><a href="search.html?cat=Movies">Movies</a
+        ><a href="search.html?cat=Anime">Anime</a
+        ><a href="search.html?cat=Cartoons">Cartoons</a
+        ><a href="search.html?cat=Series">Series</a
+        ><a href="search.html?cat=Documentaries">Documentaries</a>
+      </div>
+    </header>
+    <!-- NAVBAR END -->
+    <main class="search-main">
+      <div class="wrap search-wrap">
+        <header class="search-intro">
+          <span class="search-eyebrow">CINEMIX LIBRARY</span>
+          <h1>Find your next <em>favorite.</em></h1>
+          <p>Search movies, series, anime, and more.</p>
+        </header>
+        <div class="search-toolbar">
+          <div
+            class="chips"
+            id="chips"
+            role="group"
+            aria-label="Filter by category"
+          ></div>
+          <label class="sort-control" for="sortResults">
+            <span>Sort by</span>
+            <select id="sortResults" aria-label="Sort results">
+              <option value="relevance">Relevance</option>
+              <option value="new">Recently added</option>
+            </select>
+          </label>
+        </div>
+        <div class="search-results-heading">
+          <p class="meta" id="count" aria-live="polite"></p>
+        </div>
+        <div class="grid" id="results" aria-live="polite"></div>
+        <section class="search-empty" id="none" aria-live="polite" hidden>
+          <span class="search-empty-icon" aria-hidden="true">⌕</span>
+          <h2>No titles found</h2>
+          <p>Try a different title, genre, year, or category.</p>
+          <button id="resetSearch" class="search-reset" type="button">
+            Clear filters
+          </button>
+        </section>
+      </div>
+    </main>
+    <!-- FOOTER START -->
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-brand">
+          <div class="logo">CINE<span>MIX</span></div>
+          <p>All Entertainment. One Destination.</p>
+        </div>
+        <div class="foot-cols">
+          <div>
+            <h4>Explore</h4>
+            <a href="search.html?cat=Movies">Movies</a
+            ><a href="search.html?cat=Anime">Anime</a
+            ><a href="search.html?cat=Cartoons">Cartoons</a
+            ><a href="search.html?cat=Series">Series</a
+            ><a href="search.html?cat=Documentaries">Documentaries</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="about.html">About Us</a><a href="contact.html">Contact</a
+            ><a href="privacy-policy.html">Privacy Policy</a
+            ><a href="terms.html">Terms</a
+            ><a href="disclaimer.html">Disclaimer</a
+            ><a href="copyright.html">Copyright Policy</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="help.html">Help Center</a><a href="help.html#faq">FAQ</a
+            ><a href="contact.html#support">Support</a
+            ><a href="contact.html#feedback">Feedback</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="cookie-policy.html">Cookie Policy</a
+            ><a href="community-guidelines.html">Community Guidelines</a>
+          </div>
+          <div>
+            <h4>Follow CINEMIX</h4>
+            <span>Facebook</span><span>Instagram</span><span>X</span>
+          </div>
+        </div>
+        <p class="copy">Copyright &copy; 2026 CINEMIX. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script src="../videos/videos.js"></script>
+    <script src="../videos/episodes.js"></script>
+    <script src="../js/content-data.js"></script>
+    <script src="../account/auth-service.js"></script>
+    <script src="../js/content-navigation.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/account.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/history.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/site-navigation.js"></script>
+  </body>
+</html>

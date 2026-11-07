@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Watch | CINEMIX</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("cx_theme") || "dark";
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/watch.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+    <link rel="preconnect" href="https://i.ytimg.com" />
+    <script>
+      window.__ytq = [];
+      window.onYouTubeIframeAPIReady = function () {
+        window.__ytok = 1;
+        window.__ytq.forEach(function (f) {
+          f();
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://www.youtube.com/iframe_api"
+      onerror="window.__yterr = 1"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/site-ui.css" />
+  </head>
+  <body data-root="0">
+    <!-- NAVBAR START -->
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="logo" href="../index.html">CINE<span>MIX</span></a>
+        <nav class="links" id="links">
+          <a class="nav-search" href="search.html" aria-label="Search"
+            ><svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" /></svg></a
+          ><a href="../index.html">Home</a
+          ><a href="search.html?cat=Movies">Movies</a
+          ><a href="search.html?cat=Anime">Anime</a
+          ><a href="search.html?cat=Cartoons">Cartoons</a
+          ><a href="search.html?cat=Series">Series</a
+          ><a href="search.html">Search</a>
+          <a class="btn ghost guest-only" href="../account/auth.html#login"
+            >Login</a
+          ><a class="btn guest-only" href="../account/auth.html#signup"
+            >Sign Up</a
+          >
+          <div class="acct user-only" hidden>
+            <button class="avatar-btn" id="acctBtn" aria-label="Account menu">
+              <img id="navAvatar" alt="Account" />
+            </button>
+            <div class="menu" id="acctMenu" hidden>
+              <a href="../account/account.html">My Profile</a
+              ><a href="saved-videos.html">Saved Videos</a
+              ><a href="watch-history.html">Watch History</a
+              ><a href="../account/account.html#details">Personal Details</a
+              ><a href="settings.html">Settings</a
+              ><a href="help.html">Help &amp; Support</a
+              ><button id="logoutBtn">Logout</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="catbar">
+        <a href="../index.html">Home</a
+        ><a href="search.html?cat=Movies">Movies</a
+        ><a href="search.html?cat=Anime">Anime</a
+        ><a href="search.html?cat=Cartoons">Cartoons</a
+        ><a href="search.html?cat=Series">Series</a>
+      </div>
+    </header>
+    <!-- NAVBAR END -->
+    <main class="">
+      <div class="wrap watch">
+        <div>
+          <div class="player" id="stage">
+            <div id="ytHost"></div>
+            <div class="shield" id="shield"></div>
+            <div class="spin" id="spin" hidden></div>
+            <div class="wm">CINE<span>MIX</span></div>
+            <div class="cover fresh" id="cover">
+              <button
+                class="bigplay"
+                id="bigPlay"
+                type="button"
+                aria-label="Play video"
+              >
+                Play
+              </button>
+              <p class="cmsg" id="coverMsg" role="status"></p>
+              <a class="btn" id="errNext" href="#" hidden>Next Episode</a>
+            </div>
+            <div class="endcard" id="endCard" hidden>
+              <h3>Finished watching</h3>
+              <div class="row">
+                <button class="btn" id="replay" type="button">Replay</button
+                ><a class="btn ghost" id="endNext" href="#" hidden
+                  >Next Episode</a
+                >
+              </div>
+            </div>
+            <div class="ctrl" id="ctrl">
+              <button id="cPlay" type="button">Play</button
+              ><input
+                id="cSeek"
+                type="range"
+                min="0"
+                max="1000"
+                value="0"
+                aria-label="Seek"
+              /><span id="cTime">0:00 / 0:00</span
+              ><button id="cMute" type="button">Mute</button
+              ><input
+                id="cVol"
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+                aria-label="Volume"
+              /><select id="cSpeed" aria-label="Speed">
+                <option value="0.5">0.5x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option></select
+              ><button id="cFs" type="button">Fullscreen</button>
+            </div>
+          </div>
+          <h1 id="wTitle"></h1>
+          <p class="meta" id="wMeta"></p>
+          <div class="row">
+            <button class="btn ghost" id="prevEp">Previous Episode</button
+            ><button class="btn ghost" id="nextEp">Next Episode</button
+            ><button
+              class="btn ghost save"
+              id="wSave"
+              type="button"
+              aria-label="Save video"
+              aria-pressed="false"
+              title="Save video"
+            >
+              <svg class="save-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M6.75 3.75h10.5a1.5 1.5 0 0 1 1.5 1.5V21L12 16.5 5.25 21V5.25a1.5 1.5 0 0 1 1.5-1.5Z"
+                ></path></svg
+              ><span class="save-label">Save</span></button
+            ><button class="btn ghost" id="wShare">Share</button>
+          </div>
+          <p id="wDesc"></p>
+          <section class="epbox" id="epsBox" hidden>
+            <div class="epbar">
+              <span id="epsNow"></span
+              ><button
+                class="btn ghost"
+                id="epsToggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="epsPanel"
+              >
+                All episodes
+              </button>
+            </div>
+            <div class="epanel" id="epsPanel" hidden>
+              <label class="epsel"
+                >Season
+                <select id="epsSeason"></select
+              ></label>
+              <div class="eplist" id="epsList"></div>
+            </div>
+          </section>
+          <p class="msg" id="wMsg" role="status"></p>
+        </div>
+        <aside>
+          <h3>Related videos</h3>
+          <div class="side-list" id="related"></div>
+        </aside>
+      </div>
+      <section class="wrap">
+        <h2>More videos</h2>
+        <div class="hwrap">
+          <button class="harr l" type="button" aria-label="Scroll left">
+            &lsaquo;
+          </button>
+          <div class="hrow" id="moreRow"></div>
+          <button class="harr r" type="button" aria-label="Scroll right">
+            &rsaquo;
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER START -->
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-brand">
+          <div class="logo">CINE<span>MIX</span></div>
+          <p>All Entertainment. One Destination.</p>
+        </div>
+        <div class="foot-cols">
+          <div>
+            <h4>Explore</h4>
+            <a href="search.html?cat=Movies">Movies</a
+            ><a href="search.html?cat=Anime">Anime</a
+            ><a href="search.html?cat=Cartoons">Cartoons</a
+            ><a href="search.html?cat=Series">Series</a
+            ><a href="search.html?cat=Documentaries">Documentaries</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="about.html">About Us</a><a href="contact.html">Contact</a
+            ><a href="privacy-policy.html">Privacy Policy</a
+            ><a href="terms.html">Terms</a
+            ><a href="disclaimer.html">Disclaimer</a
+            ><a href="copyright.html">Copyright Policy</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="help.html">Help Center</a><a href="help.html#faq">FAQ</a
+            ><a href="contact.html#support">Support</a
+            ><a href="contact.html#feedback">Feedback</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="cookie-policy.html">Cookie Policy</a
+            ><a href="community-guidelines.html">Community Guidelines</a>
+          </div>
+          <div>
+            <h4>Follow CINEMIX</h4>
+            <span>Facebook</span><span>Instagram</span><span>X</span>
+          </div>
+        </div>
+        <p class="copy">Copyright &copy; 2026 CINEMIX. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script src="../videos/videos.js"></script>
+    <script src="../videos/episodes.js"></script>
+    <script src="../js/content-data.js"></script>
+    <script src="../account/auth-service.js"></script>
+    <script src="../js/content-navigation.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/account.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/history.js"></script>
+    <script src="../js/watch.js"></script>
+    <script src="../js/site-navigation.js"></script>
+  </body>
+</html>

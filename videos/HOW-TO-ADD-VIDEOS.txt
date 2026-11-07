@@ -1,0 +1,29 @@
+Normal videos (movie, cartoon, documentary, short): videos/videos.js
+Episode wale videos (series, anime): videos/episodes.js
+Dono files ke upar comment mein format likha hai. Ek block copy karo, link/title badlo, save karo, refresh karo.
+Thumbnail ke liye video ke "url" ke paas "thumbnail" field mein direct image URL paste karo.
+Example: thumbnail: "https://example.com/my-poster.jpg"
+Series mein har episode ke object ke andar uska apna thumbnail URL de sakte ho.
+Thumbnail optional hai; na dene par YouTube thumbnail automatically use hoga.
+Jis video mein seasons ya episodes likhe hon, CINEMIX use apne aap episode-video detect karke watch page par episode list aur season dropdown dikha deta hai.
+
+Upcoming releases alag file mein add karo: videos/upcoming.js
+UPCOMING_RELEASES list mein ek object copy karke title, release, badge, meta,
+description, image aur imageAlt badlo. Save karke homepage refresh karo.
+Zyada upcoming releases hon toh section ko horizontally scroll kar sakte ho.
+badgeClass optional hai: "" (default), "teal-badge", ya "green-badge".
+Example object:
+{
+  title: "My Upcoming Movie",
+  release: "RELEASING FEB 10",
+  badge: "New Trailer",
+  badgeClass: "teal-badge",
+  meta: "ACTION · SCI-FI",
+  description: "Short movie description.",
+  image: "https://example.com/movie-poster.jpg",
+  imageAlt: "Movie poster"
+}
+
+LINK CHECK: videos/check-links.html ko Live Server se kholo aur 'Check all links' dabao.
+Lal (red) rows ka link galat/private/removed hai, ya owner ne embed band kar rakha hai. Grey thumbnail = YouTube ko woh ID mila hi nahi.
+Header comment ke placeholder links (AAAAAAAAAAA, XXXXXXXXXXX) kabhi use mat karo.

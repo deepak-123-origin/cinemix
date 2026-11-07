@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Account | CINEMIX</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("cx_theme") || "dark";
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="account.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/site-ui.css" />
+  </head>
+  <body data-root="0" data-account-area="true">
+    <!-- NAVBAR START -->
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="logo" href="../index.html">CINE<span>MIX</span></a>
+        <nav class="links" id="links">
+          <a class="nav-search" href="../pages/search.html" aria-label="Search"
+            ><svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" /></svg></a
+          ><a href="../index.html">Home</a
+          ><a href="../pages/search.html?cat=Movies">Movies</a
+          ><a href="../pages/search.html?cat=Anime">Anime</a
+          ><a href="../pages/search.html?cat=Cartoons">Cartoons</a
+          ><a href="../pages/search.html?cat=Series">Series</a
+          ><a href="../pages/search.html">Search</a>
+          <a class="btn ghost guest-only" href="auth.html#login">Login</a
+          ><a class="btn guest-only" href="auth.html#signup">Sign Up</a>
+          <div class="acct user-only" hidden>
+            <button class="avatar-btn" id="acctBtn" aria-label="Account menu">
+              <img id="navAvatar" alt="Account" />
+            </button>
+            <div class="menu" id="acctMenu" hidden>
+              <a href="account.html">My Profile</a
+              ><a href="../pages/saved-videos.html">Saved Videos</a
+              ><a href="../pages/watch-history.html">Watch History</a
+              ><a href="account.html#details">Personal Details</a
+              ><a href="../pages/settings.html">Settings</a
+              ><a href="../pages/help.html">Help &amp; Support</a
+              ><button id="logoutBtn">Logout</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="catbar">
+        <a href="../index.html">Home</a
+        ><a href="../pages/search.html?cat=Movies">Movies</a
+        ><a href="../pages/search.html?cat=Anime">Anime</a
+        ><a href="../pages/search.html?cat=Cartoons">Cartoons</a
+        ><a href="../pages/search.html?cat=Series">Series</a>
+      </div>
+    </header>
+    <!-- NAVBAR END -->
+    <main class="account-main">
+      <div class="wrap account-dashboard">
+        <div class="account-heading">
+          <div>
+            <h1>My Account</h1>
+            <p>Manage your profile, personal details, and CINEMIX preferences.</p>
+          </div>
+          <span class="account-status">
+            <span aria-hidden="true"></span>
+            Account active
+          </span>
+        </div>
+
+        <div class="account-layout">
+          <aside class="account-sidebar" aria-label="Account overview">
+            <section class="panel account-profile-card">
+              <div class="account-avatar-wrap">
+                <img id="bigAvatar" class="big-avatar" alt="Profile photo" />
+                <label class="account-avatar-edit" for="photoIn">
+                  <span class="account-sr-only">Change profile photo</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z" />
+                    <path d="M8.2 4.5 6.8 6.3H4.5A2.5 2.5 0 0 0 2 8.8v9.7A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5V8.8a2.5 2.5 0 0 0-2.5-2.5h-2.3l-1.4-1.8H8.2Z" />
+                  </svg>
+                </label>
+                <input id="photoIn" type="file" accept="image/*" hidden />
+              </div>
+              <h2 id="profileDisplayName">My Profile</h2>
+              <p class="account-username" id="profileDisplayUsername"></p>
+              <div class="account-photo-actions">
+                <button class="btn ghost" id="photoRm" type="button">
+                  Remove photo
+                </button>
+                <p class="msg" id="photoMsg" role="status"></p>
+              </div>
+            </section>
+
+            <section class="panel account-stats-card">
+              <h2>Overview Stats</h2>
+              <div class="account-stats">
+                <div>
+                  <strong id="cHist">0</strong>
+                  <span>Watched Titles</span>
+                </div>
+                <div>
+                  <strong id="cSaved">0</strong>
+                  <span>Saved Items</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel account-actions-card">
+              <h2>Account Actions</h2>
+              <button class="account-action-button" id="logout2" type="button">
+                <span>Logout</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 17l5-5-5-5M15 12H3m9-8h6a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-6" />
+                </svg>
+              </button>
+              <button
+                class="account-action-button danger"
+                id="delAcct"
+                type="button"
+              >
+                <span>Delete Account</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3 2.8 20h18.4L12 3Zm0 6v5m0 3h.01" />
+                </svg>
+              </button>
+            </section>
+          </aside>
+
+          <div class="account-content">
+            <section class="panel account-details-card" id="details">
+              <div class="account-section-heading">
+                <div class="account-section-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="3.2" />
+                    <path d="M5.5 20v-1.6a6.5 6.5 0 0 1 13 0V20" />
+                  </svg>
+                </div>
+                <div>
+                  <h2>Personal Details</h2>
+                  <p>Update your personal account settings and profile details.</p>
+                </div>
+              </div>
+              <form class="account-details-form" id="profForm" novalidate>
+                <label>
+                  Full Name
+                  <span class="account-input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="4" y="5" width="16" height="14" rx="2" />
+                      <circle cx="9" cy="10" r="1.5" />
+                      <path d="M7 16c.5-1.4 1.2-2 2-2s1.5.6 2 2m3-5h3m-3 3h3" />
+                    </svg>
+                    <input name="name" autocomplete="name" required />
+                  </span>
+                </label>
+                <label>
+                  Username
+                  <span class="account-input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="12" r="8" />
+                      <path d="M16 9v5a2 2 0 0 0 4 0v-2a8 8 0 1 0-2 5" />
+                      <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+                    </svg>
+                    <input name="user" autocomplete="username" required />
+                  </span>
+                </label>
+                <label>
+                  Email Address
+                  <span class="account-input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="m4 7 8 6 8-6" />
+                    </svg>
+                    <input
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      readonly
+                    />
+                  </span>
+                </label>
+                <div class="account-form-footer">
+                  <p class="msg" id="profMsg" role="status"></p>
+                  <button class="btn account-save-button" type="submit">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="m5 12 4 4L19 6" />
+                    </svg>
+                    Save Changes
+                  </button>
+                </div>
+              </form>
+            </section>
+
+            <section class="account-library">
+              <h2>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h12v18l-6-4-6 4V3Z" />
+                </svg>
+                Your Library &amp; Settings
+              </h2>
+              <div class="account-library-grid">
+                <a class="account-library-card saved" href="../pages/saved-videos.html">
+                  <span class="account-library-card-top">
+                    <span class="account-library-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M20.8 8.7c0 4.2-8.8 10-8.8 10s-8.8-5.8-8.8-10a4.5 4.5 0 0 1 8.8-1.3 4.5 4.5 0 0 1 8.8 1.3Z" />
+                      </svg>
+                    </span>
+                    <span class="account-library-count"><b id="librarySavedCount">0</b> Videos</span>
+                  </span>
+                  <span class="account-library-title">Saved Videos</span>
+                  <span class="account-library-description">Access your bookmarked movies and series playlists.</span>
+                </a>
+                <a class="account-library-card history" href="../pages/watch-history.html">
+                  <span class="account-library-card-top">
+                    <span class="account-library-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M3.5 11a8.5 8.5 0 1 1 2.1 5.7M3.5 5.5V11h5.5M12 7v5l3 2" />
+                      </svg>
+                    </span>
+                    <span class="account-library-count"><b id="libraryHistoryCount">0</b> Items</span>
+                  </span>
+                  <span class="account-library-title">Watch History</span>
+                  <span class="account-library-description">Resume movies and series you watched previously.</span>
+                </a>
+                <a class="account-library-card settings" href="../pages/settings.html">
+                  <span class="account-library-card-top">
+                    <span class="account-library-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16M8 4v4m8 2v4m-5 2v4" />
+                      </svg>
+                    </span>
+                    <span class="account-library-chevron" aria-hidden="true">›</span>
+                  </span>
+                  <span class="account-library-title">Settings &amp; Privacy</span>
+                  <span class="account-library-description">Manage your preferences and account security.</span>
+                </a>
+                <a class="account-library-card help" href="../pages/help.html">
+                  <span class="account-library-card-top">
+                    <span class="account-library-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M9.5 9a2.6 2.6 0 1 1 4.5 1.8c-1.2 1.1-2 1.5-2 3.2m0 3h.01" />
+                      </svg>
+                    </span>
+                    <span class="account-library-label">Help Center</span>
+                  </span>
+                  <span class="account-library-title">Help &amp; Support</span>
+                  <span class="account-library-description">Find answers and get help with CINEMIX.</span>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- FOOTER START -->
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-brand">
+          <div class="logo">CINE<span>MIX</span></div>
+          <p>All Entertainment. One Destination.</p>
+        </div>
+        <div class="foot-cols">
+          <div>
+            <h4>Explore</h4>
+            <a href="../pages/search.html?cat=Movies">Movies</a
+            ><a href="../pages/search.html?cat=Anime">Anime</a
+            ><a href="../pages/search.html?cat=Cartoons">Cartoons</a
+            ><a href="../pages/search.html?cat=Series">Series</a
+            ><a href="../pages/search.html?cat=Documentaries">Documentaries</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="../pages/about.html">About Us</a
+            ><a href="../pages/contact.html">Contact</a
+            ><a href="../pages/privacy-policy.html">Privacy Policy</a
+            ><a href="../pages/terms.html">Terms</a
+            ><a href="../pages/disclaimer.html">Disclaimer</a
+            ><a href="../pages/copyright.html">Copyright Policy</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="../pages/help.html">Help Center</a
+            ><a href="../pages/help.html#faq">FAQ</a
+            ><a href="../pages/contact.html#support">Support</a
+            ><a href="../pages/contact.html#feedback">Feedback</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="../pages/cookie-policy.html">Cookie Policy</a
+            ><a href="../pages/community-guidelines.html"
+              >Community Guidelines</a
+            >
+          </div>
+          <div>
+            <h4>Follow CINEMIX</h4>
+            <span>Facebook</span><span>Instagram</span><span>X</span>
+          </div>
+        </div>
+        <p class="copy">Copyright &copy; 2026 CINEMIX. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script src="../videos/videos.js"></script>
+    <script src="../videos/episodes.js"></script>
+    <script src="../js/content-data.js"></script>
+    <script src="../account/auth-service.js"></script>
+    <script src="../js/content-navigation.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/account.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/history.js"></script>
+    <script src="profile.js"></script>
+    <script src="../js/site-navigation.js"></script>
+  </body>
+</html>

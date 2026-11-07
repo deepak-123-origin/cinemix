@@ -1,0 +1,340 @@
+/* ===== WATCH START ===== */
+.watch {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.player {
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.watch h1 {
+  font-size: 1.9rem;
+}
+/* ===== WATCH END ===== */
+/* ===== CINEMIX PLAYER START ===== */
+.player {
+  position: relative;
+}
+.player {
+  overflow: hidden;
+}
+.player #ytHost {
+  position: absolute;
+  left: -8%;
+  top: -16%;
+  width: 116%;
+  height: 132%;
+  border: 0;
+}
+.wm {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.9rem;
+  z-index: 3;
+  pointer-events: none;
+  font:
+    700 1rem Georgia,
+    serif;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-shadow: 0 1px 6px #000a;
+  opacity: 0.85;
+}
+.wm span {
+  color: var(--accent);
+}
+.shield {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+.cover {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.8rem;
+  background: rgba(5, 6, 10, 0.72);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+.cover.fresh {
+  background:
+    linear-gradient(#0006, #000a),
+    center/cover no-repeat var(--poster);
+  backdrop-filter: none;
+}
+.bigplay {
+  background: var(--accent);
+  color: var(--ink);
+  border: 0;
+  border-radius: 99px;
+  padding: 0.9rem 2.2rem;
+  font:
+    700 1.1rem "Segoe UI",
+    sans-serif;
+  cursor: pointer;
+  box-shadow: 0 10px 30px #0008;
+}
+.cmsg {
+  color: #fff;
+  max-width: 36ch;
+  text-align: center;
+  margin: 0;
+  font-size: 0.95rem;
+}
+.endcard {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: #05060a;
+  color: #fff;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+.endcard .row {
+  justify-content: center;
+}
+.ctrl {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  background: linear-gradient(transparent, #000c);
+  color: #fff;
+  transition: opacity 0.25s;
+}
+.ctrl button,
+.ctrl select {
+  background: #ffffff1f;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font:
+    600 0.85rem "Segoe UI",
+    sans-serif;
+  cursor: pointer;
+  width: auto;
+}
+.ctrl select option {
+  color: #000;
+}
+.ctrl input[type="range"] {
+  padding: 0;
+  border: 0;
+  background: none;
+  accent-color: var(--accent);
+}
+#cSeek {
+  flex: 1;
+}
+#cVol {
+  width: 80px;
+}
+.ctrl span {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.player:not(.started) .ctrl {
+  display: none;
+}
+.player.idle.playing .ctrl {
+  opacity: 0;
+}
+.player.idle.playing .shield {
+  cursor: none;
+}
+.player:fullscreen {
+  border-radius: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  aspect-ratio: auto;
+  margin: 0;
+  max-width: none;
+}
+.player:fullscreen #ytHost,
+.player:-webkit-full-screen #ytHost,
+.player.mobile-fullscreen #ytHost {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.player:-webkit-full-screen {
+  border-radius: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  aspect-ratio: auto;
+  margin: 0;
+  max-width: none;
+}
+/* ===== CINEMIX PLAYER END ===== */
+
+.player-fullscreen {
+  overflow: hidden;
+}
+
+.player.mobile-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  aspect-ratio: auto;
+  margin: 0;
+  border-radius: 0;
+  background: #000;
+}
+
+@media (max-width: 720px) and (orientation: portrait) {
+  .player.mobile-fullscreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vh;
+    width: 100dvh;
+    height: 100vw;
+    margin: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+    transform-origin: center;
+  }
+}
+
+.spin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px;
+  border: 4px solid #fff3;
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: sp 0.8s linear infinite;
+  z-index: 4;
+  pointer-events: none;
+}
+.spin[hidden] {
+  display: none;
+}
+@keyframes sp {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== PHONE / TABLET: first tap passes through to the real player START ===== */
+.player.touch:not(.started) .cover {
+  pointer-events: none;
+}
+.player.touch:not(.started) .shield {
+  display: none;
+}
+/* ===== PHONE / TABLET: first tap passes through to the real player END ===== */
+
+/* ===== EPISODES PANEL START ===== */
+.epbox {
+  margin: 1rem 0;
+}
+.epbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 0.7rem 1rem;
+}
+.epbar span {
+  color: var(--mute);
+  font-size: 0.95rem;
+}
+.epanel {
+  margin-top: 0.8rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1rem;
+}
+.epsel {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  color: var(--mute);
+}
+.epsel select {
+  width: auto;
+  min-width: 170px;
+}
+.eplist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--panel);
+}
+.epi {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+.epi:hover {
+  background: var(--bg);
+}
+.epi.now {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+.epi .thumb {
+  border-radius: 6px;
+}
+.epi .ph {
+  font-size: 0.9rem;
+}
+.et b {
+  display: block;
+  font-size: 0.95rem;
+}
+.et small {
+  color: var(--mute);
+}
+.epi.now small {
+  color: var(--accent);
+}
+/* ===== EPISODES PANEL END ===== */
+
+#errNext {
+  pointer-events: auto;
+}

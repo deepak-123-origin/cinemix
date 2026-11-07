@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login or Sign Up | CINEMIX</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("cx_theme") || "dark";
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/site-ui.css" />
+  </head>
+  <body data-root="0">
+    <!-- NAVBAR START -->
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="logo" href="../index.html">CINE<span>MIX</span></a>
+        <nav class="links" id="links">
+          <a class="nav-search" href="../pages/search.html" aria-label="Search"
+            ><svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" /></svg></a
+          ><a href="../index.html">Home</a
+          ><a href="../pages/search.html?cat=Movies">Movies</a
+          ><a href="../pages/search.html?cat=Anime">Anime</a
+          ><a href="../pages/search.html?cat=Cartoons">Cartoons</a
+          ><a href="../pages/search.html?cat=Series">Series</a
+          ><a href="../pages/search.html">Search</a>
+          <a class="btn ghost guest-only" href="auth.html#login">Login</a
+          ><a class="btn guest-only" href="auth.html#signup">Sign Up</a>
+          <div class="acct user-only" hidden>
+            <button class="avatar-btn" id="acctBtn" aria-label="Account menu">
+              <img id="navAvatar" alt="Account" />
+            </button>
+            <div class="menu" id="acctMenu" hidden>
+              <a href="account.html">My Profile</a
+              ><a href="../pages/saved-videos.html">Saved Videos</a
+              ><a href="../pages/watch-history.html">Watch History</a
+              ><a href="account.html#details">Personal Details</a
+              ><a href="../pages/settings.html">Settings</a
+              ><a href="../pages/help.html">Help &amp; Support</a
+              ><button id="logoutBtn">Logout</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="catbar">
+        <a href="../index.html">Home</a
+        ><a href="../pages/search.html?cat=Movies">Movies</a
+        ><a href="../pages/search.html?cat=Anime">Anime</a
+        ><a href="../pages/search.html?cat=Cartoons">Cartoons</a
+        ><a href="../pages/search.html?cat=Series">Series</a>
+      </div>
+    </header>
+    <!-- NAVBAR END -->
+    <main class="">
+      <section class="auth wrap">
+        <div class="auth-box">
+          <div class="tabs">
+            <button id="tabLogin" class="on">Login</button
+            ><button id="tabSignup">Sign Up</button>
+          </div>
+          <form id="loginForm" class="stack" novalidate>
+            <label
+              >Email or username<input
+                name="id"
+                autocomplete="username"
+                required
+            /></label>
+            <label
+              >Password<span class="pw"
+                ><input
+                  name="pw"
+                  type="password"
+                  autocomplete="current-password"
+                  required
+                /><button type="button" class="eye" aria-label="Show password">
+                  Show
+                </button></span
+              ></label
+            >
+            <div class="row between">
+              <label class="chk"
+                ><input type="checkbox" name="rem" /> Remember me</label
+              ><a href="#" id="forgot">Forgot password?</a>
+            </div>
+            <button class="btn" type="submit">Login</button>
+            <p class="msg" id="loginMsg" role="status"></p>
+          </form>
+          <form id="signupForm" class="stack" novalidate hidden>
+            <label
+              >Full name<input name="name" autocomplete="name" required
+            /></label>
+            <label
+              >Username<input name="user" autocomplete="username" required
+            /></label>
+            <label
+              >Email<input
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+            /></label>
+            <label
+              >Password<span class="pw"
+                ><input
+                  name="pw"
+                  id="spw"
+                  type="password"
+                  autocomplete="new-password"
+                  required
+                /><button type="button" class="eye" aria-label="Show password">
+                  Show
+                </button></span
+              ></label
+            >
+            <div class="meter"><i id="meterBar"></i></div>
+            <small id="meterTxt"
+              >Use 8+ characters with letters, numbers and symbols.</small
+            >
+            <label
+              >Confirm password<input
+                name="cpw"
+                type="password"
+                autocomplete="new-password"
+                required
+            /></label>
+            <label class="chk"
+              ><input type="checkbox" name="terms" /> I agree to the
+              <a href="../pages/terms.html">Terms</a> and
+              <a href="../pages/privacy-policy.html">Privacy Policy</a></label
+            >
+            <button class="btn" type="submit">Create Account</button>
+            <p class="msg" id="signupMsg" role="status"></p>
+          </form>
+          <p class="demo-note">
+            Demo sign-in: accounts live in this browser only, with salted
+            password hashes. A production site needs a secure backend.
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER START -->
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-brand">
+          <div class="logo">CINE<span>MIX</span></div>
+          <p>All Entertainment. One Destination.</p>
+        </div>
+        <div class="foot-cols">
+          <div>
+            <h4>Explore</h4>
+            <a href="../pages/search.html?cat=Movies">Movies</a
+            ><a href="../pages/search.html?cat=Anime">Anime</a
+            ><a href="../pages/search.html?cat=Cartoons">Cartoons</a
+            ><a href="../pages/search.html?cat=Series">Series</a
+            ><a href="../pages/search.html?cat=Documentaries">Documentaries</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="../pages/about.html">About Us</a
+            ><a href="../pages/contact.html">Contact</a
+            ><a href="../pages/privacy-policy.html">Privacy Policy</a
+            ><a href="../pages/terms.html">Terms</a
+            ><a href="../pages/disclaimer.html">Disclaimer</a
+            ><a href="../pages/copyright.html">Copyright Policy</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="../pages/help.html">Help Center</a
+            ><a href="../pages/help.html#faq">FAQ</a
+            ><a href="../pages/contact.html#support">Support</a
+            ><a href="../pages/contact.html#feedback">Feedback</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="../pages/cookie-policy.html">Cookie Policy</a
+            ><a href="../pages/community-guidelines.html"
+              >Community Guidelines</a
+            >
+          </div>
+          <div>
+            <h4>Follow CINEMIX</h4>
+            <span>Facebook</span><span>Instagram</span><span>X</span>
+          </div>
+        </div>
+        <p class="copy">Copyright &copy; 2026 CINEMIX. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script src="../videos/videos.js"></script>
+    <script src="../videos/episodes.js"></script>
+    <script src="../js/content-data.js"></script>
+    <script src="../account/auth-service.js"></script>
+    <script src="../js/content-navigation.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/account.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/history.js"></script>
+    <script src="auth.js"></script>
+    <script src="../js/site-navigation.js"></script>
+  </body>
+</html>
