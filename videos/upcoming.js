@@ -4,12 +4,12 @@ window.UPCOMING_RELEASES = [
 
   {
     title: "Avengers: Doomsday",
-    release: "COMING SOON · DEC 18, 2026",
-    badge: "✦ Marvel Studios Exclusive",
+    release: "COMING SOON",
+    badge: "✦ Marvel Exclusive",
     badgeClass: "teal-badge",
     meta: "ACTION · ADVENTURE · SCI-FI",
     description:
-      "The Avengers return for their most dangerous battle yet. Heroes from three different universes collide as a powerful new threat emerges. With Doctor Doom on the horizon, Earth's mightiest heroes must unite to face a threat unlike anything they've ever encountered.",
+      "The Avengers assemble once again to face their greatest threat yet. As the powerful Doctor Doom emerges, heroes from across the Marvel universe must unite to protect the world from an unprecedented catastrophe. Get ready for an epic battle that will change the Marvel Cinematic Universe forever.",
     image:
       "https://cdn.mos.cms.futurecdn.net/C9wvjJD3zi5cNhigC2xu8L.jpg",
     imageAlt: "Avengers: Doomsday movie poster"
