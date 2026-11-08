@@ -1,18 +1,20 @@
 /* Add upcoming releases here. Save the file and refresh the homepage. */
 /* ===== UPCOMING RELEASES START ===== */
 window.UPCOMING_RELEASES = [
+
   {
-    title: "Chronicles of Cyberia",
-    release: "RELEASING DEC 12",
-    badge: "🔥 99% Hype",
-    badgeClass: "",
-    meta: "SCI-FI · 4K HDR · EXCLUSIVE",
+    title: "Avengers: Doomsday",
+    release: "COMING SOON · DEC 18, 2026",
+    badge: "✦ Marvel Studios Exclusive",
+    badgeClass: "teal-badge",
+    meta: "ACTION · ADVENTURE · SCI-FI",
     description:
-      "A dystopian metropolis faces a blackout when rogue androids awaken.",
+      "The Avengers return for their most dangerous battle yet. Heroes from three different universes collide as a powerful new threat emerges. With Doctor Doom on the horizon, Earth's mightiest heroes must unite to face a threat unlike anything they've ever encountered.",
     image:
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Misty stone castle",
+      "https://cdn.mos.cms.futurecdn.net/C9wvjJD3zi5cNhigC2xu8L.jpg",
+    imageAlt: "Avengers: Doomsday movie poster"
   },
+  
   {
     title: "Spider-Man: Brand New Day",
     release: "NOW AVAILABLE",
