@@ -1,0 +1,799 @@
+/* ===== ACCOUNT START ===== */
+.prof {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+}
+.big-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  background: var(--bg);
+}
+.file {
+  cursor: pointer;
+}
+.panel h2 {
+  font-size: 1.25rem;
+}
+.panel b {
+  color: var(--accent);
+}
+.hist .item {
+  margin-bottom: 0.7rem;
+}
+
+body[data-account-area="true"] .account-dashboard {
+  width: min(1180px, 92%);
+  padding-top: clamp(2rem, 4vw, 3.25rem);
+}
+
+body[data-account-area="true"] .account-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.65rem;
+}
+
+body[data-account-area="true"] .account-heading h1 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.9rem, 3vw, 2.45rem);
+}
+
+body[data-account-area="true"] .account-heading p {
+  margin: 0;
+  color: #9aa5b7;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+body[data-account-area="true"] .account-status {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 9px;
+  background: rgba(16, 185, 129, 0.08);
+  color: #40d6a5;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+body[data-account-area="true"] .account-status > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
+}
+
+body[data-account-area="true"] .account-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.82fr) minmax(0, 1.65fr);
+  align-items: start;
+  gap: 1.25rem;
+}
+
+body[data-account-area="true"] .account-sidebar,
+body[data-account-area="true"] .account-content {
+  display: grid;
+  min-width: 0;
+  gap: 1.1rem;
+}
+
+body[data-account-area="true"] .account-dashboard .panel {
+  margin: 0;
+  border-color: rgba(148, 163, 184, 0.11);
+  border-radius: 17px;
+  background:
+    radial-gradient(
+      circle at 0 0,
+      rgba(245, 158, 11, 0.045),
+      transparent 15rem
+    ),
+    rgba(16, 19, 28, 0.86);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.025),
+    0 12px 30px rgba(0,  0, 0, 0.17);
+}
+
+body[data-account-area="true"] .account-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.55rem 1.25rem 1.1rem;
+  text-align: center;
+}
+
+body[data-account-area="true"] .account-avatar-wrap {
+  position: relative;
+  width: 94px;
+  height: 94px;
+  margin: 0.15rem 0 0.8rem;
+  border: 3px solid #f5ad16;
+  border-radius: 50%;
+  background: #111827;
+  box-shadow:
+    0 0 0 4px rgba(245, 158, 11, 0.08),
+    0 0 22px rgba(245, 158, 11, 0.17);
+}
+
+body[data-account-area="true"] .account-profile-card .big-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+body[data-account-area="true"] .account-avatar-edit {
+  position: absolute;
+  right: -0.15rem;
+  bottom: -0.15rem;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(245, 158, 11, 0.38);
+  border-radius: 50%;
+  background: #111722;
+  color: #fbbf24;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+body[data-account-area="true"] .account-avatar-edit:hover {
+  transform: scale(1.08);
+  background: #f5a10a;
+  color: #17120a;
+}
+
+body[data-account-area="true"] .account-avatar-edit svg,
+body[data-account-area="true"] .account-section-icon svg,
+body[data-account-area="true"] .account-input-wrap svg,
+body[data-account-area="true"] .account-save-button svg,
+body[data-account-area="true"] .account-action-button svg,
+body[data-account-area="true"] .account-library svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+body[data-account-area="true"] .account-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+body[data-account-area="true"] .account-profile-card h2 {
+  margin: 0;
+  color: #f4f5f7;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 1.04rem;
+  font-weight: 800;
+}
+
+body[data-account-area="true"] .account-profile-card .account-username {
+  min-height: 1.2rem;
+  margin: 0.15rem 0 0.7rem;
+  color: #fbbf24;
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+body[data-account-area="true"] .account-photo-actions {
+  width: 100%;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.09);
+}
+
+body[data-account-area="true"] .account-photo-actions .btn {
+  min-height: 30px;
+  padding: 0.35rem 0.7rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #9aa5b7;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+body[data-account-area="true"] .account-photo-actions .btn:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+}
+
+body[data-account-area="true"] .account-photo-actions .msg:empty {
+  display: none;
+}
+
+body[data-account-area="true"] .account-photo-actions .msg:not(:empty) {
+  margin: 0.3rem 0 0;
+  font-size: 0.7rem;
+}
+
+body[data-account-area="true"] .account-stats-card,
+body[data-account-area="true"] .account-actions-card {
+  padding: 1.15rem;
+}
+
+body[data-account-area="true"] .account-stats-card h2,
+body[data-account-area="true"] .account-actions-card h2 {
+  margin: 0 0 0.8rem;
+  color: #8e98a9;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+body[data-account-area="true"] .account-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+body[data-account-area="true"] .account-stats > div {
+  display: grid;
+  min-height: 70px;
+  align-content: center;
+  justify-items: center;
+  gap: 0.22rem;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+body[data-account-area="true"] .account-stats strong {
+  color: #f4f5f7;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+body[data-account-area="true"] .account-stats > div:last-child strong {
+  color: #fbbf24;
+}
+
+body[data-account-area="true"] .account-stats span {
+  color: #929cad;
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+body[data-account-area="true"] .account-actions-card {
+  border-color: rgba(239, 68, 68, 0.12) !important;
+}
+
+body[data-account-area="true"] .account-actions-card h2 {
+  margin-bottom: 0.65rem;
+}
+
+body[data-account-area="true"] .account-action-button {
+  display: flex;
+  width: 100%;
+  min-height: 39px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #c4cbd6;
+  font: inherit;
+  font-size: 0.72rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+body[data-account-area="true"] .account-action-button:hover {
+  border-color: rgba(148, 163, 184, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+body[data-account-area="true"] .account-action-button svg {
+  width: 14px;
+  height: 14px;
+  color: #7d8798;
+}
+
+body[data-account-area="true"] .account-action-button.danger {
+  border-color: rgba(239, 68, 68, 0.16);
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+}
+
+body[data-account-area="true"] .account-action-button.danger:hover {
+  border-color: rgba(239, 68, 68, 0.34);
+  background: rgba(239, 68, 68, 0.14);
+  color: #fca5a5;
+}
+
+body[data-account-area="true"] .account-action-button.danger svg {
+  color: #ef6464;
+}
+
+body[data-account-area="true"] .account-details-card {
+  padding: clamp(1.15rem, 2.8vw, 1.8rem);
+  scroll-margin-top: 1.5rem;
+}
+
+body[data-account-area="true"] .account-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
+}
+
+body[data-account-area="true"] .account-section-icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+}
+
+body[data-account-area="true"] .account-section-heading h2 {
+  margin: 0;
+  color: #f4f5f7;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+body[data-account-area="true"] .account-section-heading p {
+  margin: 0.18rem 0 0;
+  color: #929cad;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+body[data-account-area="true"] .account-details-form {
+  display: grid;
+  gap: 1rem;
+}
+
+body[data-account-area="true"] .account-details-form > label {
+  display: grid;
+  gap: 0.42rem;
+  color: #c4cbd6;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+body[data-account-area="true"] .account-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+body[data-account-area="true"] .account-input-wrap > svg {
+  position: absolute;
+  left: 0.8rem;
+  width: 14px;
+  height: 14px;
+  color: #8490a2;
+  pointer-events: none;
+}
+
+body[data-account-area="true"] .account-input-wrap input {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  padding: 0.65rem 0.8rem 0.65rem 2.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #e6eaf0;
+  font-size: 0.78rem;
+}
+
+body[data-account-area="true"] .account-input-wrap input[readonly] {
+  color: #c4cbd6;
+  cursor: default;
+}
+
+body[data-account-area="true"] .account-form-footer {
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.05rem;
+}
+
+body[data-account-area="true"] .account-form-footer .msg {
+  margin: 0;
+}
+
+body[data-account-area="true"] .account-save-button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid #de8d06;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #fbbf24, #e99308);
+  box-shadow: 0 6px 17px rgba(245, 158, 11, 0.2);
+  color: #17120a;
+  font-size: 0.72rem;
+  font-weight: 850;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+body[data-account-area="true"] .account-save-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.28);
+}
+
+body[data-account-area="true"] .account-save-button svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.4;
+}
+
+body[data-account-area="true"] .account-library > h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.75rem;
+  color: #f0f2f6;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+body[data-account-area="true"] .account-library > h2 svg {
+  width: 15px;
+  height: 15px;
+  fill: #fbbf24;
+  stroke: #fbbf24;
+}
+
+body[data-account-area="true"] .account-library-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+body[data-account-area="true"] .account-library-card {
+  display: flex;
+  min-width: 0;
+  min-height: 116px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 15px;
+  background: rgba(16, 19, 28, 0.82);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+body[data-account-area="true"] .account-library-card:hover,
+body[data-account-area="true"] .account-library-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(245, 158, 11, 0.34);
+  background: rgba(20, 24, 34, 0.94);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  outline: 0;
+}
+
+body[data-account-area="true"] .account-library-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+body[data-account-area="true"] .account-library-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border: 1px solid rgba(245, 158, 11, 0.17);
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+}
+
+body[data-account-area="true"] .account-library-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+body[data-account-area="true"] .account-library-card.history .account-library-icon {
+  border-color: rgba(59, 130, 246, 0.2);
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+}
+
+body[data-account-area="true"] .account-library-card.settings .account-library-icon {
+  border-color: rgba(168, 85, 247, 0.2);
+  background: rgba(168, 85, 247, 0.1);
+  color: #c084fc;
+}
+
+body[data-account-area="true"] .account-library-card.help .account-library-icon {
+  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+}
+
+body[data-account-area="true"] .account-library-count,
+body[data-account-area="true"] .account-library-label {
+  padding: 0.22rem 0.48rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  font-size: 0.62rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+body[data-account-area="true"] .account-library-card.history .account-library-count {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+}
+
+body[data-account-area="true"] .account-library-card.help .account-library-label {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+}
+
+body[data-account-area="true"] .account-library-title,
+body[data-account-area="true"] .account-library-description {
+  display: block;
+}
+
+body[data-account-area="true"] .account-library-title {
+  color: #e9edf3;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+body[data-account-area="true"] .account-library-card:hover .account-library-title {
+  color: #fbbf24;
+}
+
+body[data-account-area="true"] .account-library-description {
+  margin-top: 0.2rem;
+  color: #929cad;
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
+body[data-account-area="true"] .account-library-chevron {
+  color: #7d8798;
+  font-size: 1.4rem;
+  line-height: 1;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+body[data-account-area="true"] .account-library-card:hover .account-library-chevron {
+  transform: translateX(2px);
+  color: #fbbf24;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-heading p,
+[data-theme="light"] body[data-account-area="true"] .account-section-heading p,
+[data-theme="light"] body[data-account-area="true"] .account-library-description {
+  color: #667084;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-dashboard .panel,
+[data-theme="light"] body[data-account-area="true"] .account-library-card {
+  border-color: rgba(117, 83, 35, 0.15);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 26px rgba(64, 51, 29, 0.06);
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-profile-card h2,
+[data-theme="light"] body[data-account-area="true"] .account-section-heading h2,
+[data-theme="light"] body[data-account-area="true"] .account-library > h2,
+[data-theme="light"] body[data-account-area="true"] .account-library-title {
+  color: #282c36;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-stats > div,
+[data-theme="light"] body[data-account-area="true"] .account-action-button {
+  border-color: rgba(117, 83, 35, 0.12);
+  background: rgba(35, 42, 55, 0.035);
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-stats strong {
+  color: #282c36;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-stats span,
+[data-theme="light"] body[data-account-area="true"] .account-stats-card h2,
+[data-theme="light"] body[data-account-area="true"] .account-actions-card h2 {
+  color: #667084;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-details-form > label {
+  color: #414958;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-input-wrap input {
+  border-color: rgba(117, 83, 35, 0.16);
+  background: rgba(35, 42, 55, 0.035);
+  color: #282c36;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-input-wrap input[readonly] {
+  color: #596273;
+}
+
+[data-theme="light"] body[data-account-area="true"] .account-library-card:hover,
+[data-theme="light"] body[data-account-area="true"] .account-library-card:focus-visible {
+  border-color: rgba(245, 158, 11, 0.45);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 28px rgba(64, 51, 29, 0.1);
+}
+
+@media (max-width: 900px) {
+  body[data-account-area="true"] .account-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  body[data-account-area="true"] .account-sidebar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  body[data-account-area="true"] .account-profile-card {
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-account-area="true"] .account-dashboard {
+    width: min(100% - 1.35rem, 1180px);
+    padding-top: 1.5rem;
+  }
+
+  body[data-account-area="true"] .account-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  body[data-account-area="true"] .account-heading h1 {
+    margin-bottom: 0.25rem;
+    font-size: 1.8rem;
+  }
+
+  body[data-account-area="true"] .account-heading p {
+    font-size: 0.73rem;
+  }
+
+  body[data-account-area="true"] .account-status {
+    padding: 0.42rem 0.68rem;
+    font-size: 0.65rem;
+  }
+
+  body[data-account-area="true"] .account-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  body[data-account-area="true"] .account-profile-card {
+    grid-row: auto;
+    padding: 1.15rem 1rem 0.85rem;
+  }
+
+  body[data-account-area="true"] .account-avatar-wrap {
+    width: 82px;
+    height: 82px;
+  }
+
+  body[data-account-area="true"] .account-stats-card,
+  body[data-account-area="true"] .account-actions-card {
+    padding: 0.95rem;
+  }
+
+  body[data-account-area="true"] .account-stats > div {
+    min-height: 62px;
+  }
+
+  body[data-account-area="true"] .account-details-card {
+    padding: 1rem;
+  }
+
+  body[data-account-area="true"] .account-section-heading {
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  body[data-account-area="true"] .account-section-heading h2 {
+    font-size: 0.9rem;
+  }
+
+  body[data-account-area="true"] .account-section-heading p {
+    font-size: 0.66rem;
+  }
+
+  body[data-account-area="true"] .account-details-form {
+    gap: 0.82rem;
+  }
+
+  body[data-account-area="true"] .account-input-wrap input {
+    min-height: 42px;
+    font-size: 0.76rem;
+  }
+
+  body[data-account-area="true"] .account-form-footer {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+
+  body[data-account-area="true"] .account-save-button {
+    width: 100%;
+  }
+
+  body[data-account-area="true"] .account-library > h2 {
+    font-size: 0.88rem;
+  }
+
+  body[data-account-area="true"] .account-library-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  body[data-account-area="true"] .account-library-card {
+    min-height: 102px;
+    padding: 0.8rem;
+  }
+}
+
+/* ===== ACCOUNT END ===== */

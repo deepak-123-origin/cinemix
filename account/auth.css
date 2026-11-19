@@ -1,0 +1,66 @@
+/* ===== AUTH START ===== */
+.auth {
+  display: grid;
+  place-items: center;
+  padding-top: 3rem;
+}
+.auth-box {
+  width: min(440px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.6rem;
+}
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+.tabs button {
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: var(--mute);
+  padding: 0.7rem;
+  font: 600 1rem inherit;
+  cursor: pointer;
+}
+.tabs button.on {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.pw {
+  position: relative;
+  display: block;
+}
+.pw input {
+  padding-right: 4.2rem;
+}
+.eye {
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+}
+.meter {
+  height: 6px;
+  background: var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--err);
+  transition:
+    width 0.2s,
+    background 0.2s;
+}
+/* ===== AUTH END ===== */

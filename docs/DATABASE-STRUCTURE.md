@@ -1,0 +1,13 @@
+# Database Structure (PostgreSQL, future)
+
+- users(id, email, username, password_hash, created_at)
+- profiles(user_id, full_name, avatar_url)
+- categories(id, name)
+- videos(id, title, type, category_id, year, genre, duration, rating, description, youtube_id, added_at, featured)
+- seasons(id, video_id, number)
+- episodes(id, season_id, number, title, duration, youtube_id)
+- watch_history(id, user_id, video_id, episode_id, watched_at)
+- watchlist(user_id, video_id, saved_at)
+- user_settings(user_id, theme, language, notify_new, notify_email, record_history)
+- comments(id, user_id, video_id, body, created_at)
+- ratings(user_id, video_id, score)

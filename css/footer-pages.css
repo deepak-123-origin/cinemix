@@ -1,0 +1,188 @@
+/* ===== INFO PAGES START ===== */
+.doc {
+  width: min(100% - 2rem, 940px);
+  padding-top: clamp(2rem, 5vw, 3.75rem);
+  padding-bottom: 4rem;
+}
+.doc h1 {
+  margin-bottom: 0.8rem;
+  color: #f4f5f7;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: clamp(2.15rem, 4vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+.doc p {
+  max-width: 76ch;
+  color: #aab4c4;
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+.doc b {
+  color: #eef1f7;
+}
+details {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+}
+summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.doc .doc-lead {
+  margin: 0 0 1.75rem;
+  color: #c1c9d5;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.8;
+}
+
+.doc-section {
+  margin: 1rem 0;
+  padding: clamp(1.1rem, 2.5vw, 1.65rem);
+  border: 1px solid rgba(245, 158, 11, 0.16);
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at 0 0,
+      rgba(245, 158, 11, 0.055),
+      transparent 18rem
+    ),
+    rgba(14, 17, 26, 0.72);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.025),
+    0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+.doc-section h2,
+.doc-section h3 {
+  margin: 0 0 0.65rem;
+  color: #f0f2f6;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.doc-section p:last-child {
+  margin-bottom: 0;
+}
+
+.doc-section ul,
+.doc-section ol {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  color: #aab4c4;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.doc-section li::marker {
+  color: #fbbf24;
+}
+
+.doc a:not(.btn) {
+  color: #fbbf24;
+  font-weight: 650;
+  text-underline-offset: 3px;
+}
+
+.doc .doc-note {
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-radius: 13px;
+  background: rgba(245, 158, 11, 0.07);
+}
+
+.doc .doc-section .stack {
+  max-width: 680px;
+}
+
+.doc .doc-section label {
+  color: #b7bfcd;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.doc .doc-section input,
+.doc .doc-section select,
+.doc .doc-section textarea {
+  border-color: rgba(126, 140, 164, 0.23);
+  border-radius: 11px;
+  background: rgba(5, 8, 16, 0.72);
+  color: #eef1f7;
+}
+
+.doc .doc-section input:focus,
+.doc .doc-section select:focus,
+.doc .doc-section textarea:focus {
+  border-color: rgba(245, 158, 11, 0.65);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.11);
+}
+
+.doc .doc-highlight {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+[data-theme="light"] .doc h1,
+[data-theme="light"] .doc-section h2,
+[data-theme="light"] .doc-section h3,
+[data-theme="light"] .doc b {
+  color: #282c36;
+}
+
+[data-theme="light"] .doc p,
+[data-theme="light"] .doc .doc-lead,
+[data-theme="light"] .doc-section ul,
+[data-theme="light"] .doc-section ol {
+  color: #596273;
+}
+
+[data-theme="light"] .doc-section {
+  border-color: rgba(117, 83, 35, 0.17);
+  background:
+    radial-gradient(
+      circle at 0 0,
+      rgba(245, 158, 11, 0.08),
+      transparent 18rem
+    ),
+    rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 28px rgba(64, 51, 29, 0.06);
+}
+
+[data-theme="light"] .doc .doc-section label {
+  color: #414958;
+}
+
+[data-theme="light"] .doc .doc-section input,
+[data-theme="light"] .doc .doc-section select,
+[data-theme="light"] .doc .doc-section textarea {
+  border-color: rgba(117, 83, 35, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  color: #282c36;
+}
+
+@media (max-width: 720px) {
+  .doc {
+    width: min(100% - 1.5rem, 940px);
+    padding-top: 1.75rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .doc h1 {
+    font-size: 2rem;
+  }
+
+  .doc-section {
+    margin: 0.75rem 0;
+    border-radius: 15px;
+  }
+}
+/* ===== INFO PAGES END ===== */

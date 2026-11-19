@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Help Center | CINEMIX</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("cx_theme") || "dark";
+    </script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/footer-pages.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/site-ui.css" />
+  </head>
+  <body data-root="0" data-account-area="true">
+    <!-- NAVBAR START -->
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="logo" href="../index.html">CINE<span>MIX</span></a>
+        <nav class="links" id="links">
+          <a class="nav-search" href="search.html" aria-label="Search"
+            ><svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" /></svg></a
+          ><a href="../index.html">Home</a
+          ><a href="search.html?cat=Movies">Movies</a
+          ><a href="search.html?cat=Anime">Anime</a
+          ><a href="search.html?cat=Cartoons">Cartoons</a
+          ><a href="search.html?cat=Series">Series</a
+          ><a href="search.html">Search</a>
+          <a class="btn ghost guest-only" href="../account/auth.html#login"
+            >Login</a
+          ><a class="btn guest-only" href="../account/auth.html#signup"
+            >Sign Up</a
+          >
+          <div class="acct user-only" hidden>
+            <button class="avatar-btn" id="acctBtn" aria-label="Account menu">
+              <img id="navAvatar" alt="Account" />
+            </button>
+            <div class="menu" id="acctMenu" hidden>
+              <a href="../account/account.html">My Profile</a
+              ><a href="saved-videos.html">Saved Videos</a
+              ><a href="watch-history.html">Watch History</a
+              ><a href="../account/account.html#details">Personal Details</a
+              ><a href="settings.html">Settings</a
+              ><a href="help.html">Help &amp; Support</a
+              ><button id="logoutBtn">Logout</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="catbar">
+        <a href="../index.html">Home</a
+        ><a href="search.html?cat=Movies">Movies</a
+        ><a href="search.html?cat=Anime">Anime</a
+        ><a href="search.html?cat=Cartoons">Cartoons</a
+        ><a href="search.html?cat=Series">Series</a>
+      </div>
+    </header>
+    <!-- NAVBAR END -->
+    <main class="">
+      <div class="wrap narrow doc">
+        <h1>Help Center</h1>
+        <p class="doc-lead">Need Help? We're Here for You. Welcome to the CINEMIX Help Center. Find information about using our platform and resolving common issues.</p>
+        <section class="doc-section">
+          <h2>Browsing CINEMIX</h2>
+          <p>Explore different entertainment categories, including Movies, Anime, Cartoons and Series.</p>
+          <h2>Finding Content</h2>
+          <p>Use the search feature to find titles available on CINEMIX.</p>
+          <h2>Video Playback Problems</h2>
+          <p>If a video does not play:</p>
+          <ul><li>Check your internet connection.</li><li>Refresh the page.</li><li>Try another browser.</li><li>Check whether the original video is available on its hosting platform.</li></ul>
+          <h2>Account Assistance</h2>
+          <p>If account features are available, use the account settings to manage your profile and preferences.</p>
+        </section>
+        <div id="faq">
+          <h2>Frequently Asked Questions</h2>
+          <details>
+            <summary>1. What is CINEMIX?</summary>
+            <p>CINEMIX is an entertainment discovery platform where users can explore movies, anime, cartoons, series and other entertainment content.</p>
+          </details>
+          <details>
+            <summary>2. Is CINEMIX free to use?</summary>
+            <p>CINEMIX may provide access to available content without a subscription fee. Certain third-party platforms may have their own charges or requirements.</p>
+          </details>
+          <details>
+            <summary>3. Do I need an account?</summary>
+            <p>Some browsing features may be available without an account. Account requirements depend on the specific features being used.</p>
+          </details>
+          <details>
+            <summary>4. Why is a video not playing?</summary>
+            <p>A video may be unavailable because of restrictions, removal, regional limitations or technical problems with its hosting platform.</p>
+          </details>
+          <details>
+            <summary>5. Where do the videos come from?</summary>
+            <p>Some videos are embedded or linked from third-party platforms, such as YouTube.</p>
+          </details>
+          <details><summary>6. Can I request a movie or cartoon?</summary><p>Yes. You can submit content suggestions through our <a href="contact.html#request">Request Content</a> section.</p></details>
+          <details><summary>7. Does CINEMIX own all the videos?</summary><p>No. Third-party videos remain the property of their respective owners. See our <a href="copyright.html">Copyright Policy</a>.</p></details>
+          <details><summary>8. How can I report copyright infringement?</summary><p>Visit our <a href="copyright.html#dmca">DMCA &amp; Copyright Complaints</a> section and follow the complaint submission instructions.</p></details>
+          <details><summary>9. How can I contact CINEMIX?</summary><p>Visit our <a href="contact.html">Contact Us</a> page or use the official contact address listed there.</p></details>
+          <details><summary>10. How can I share feedback?</summary><p>Use our <a href="contact.html#feedback">Feedback</a> section to send suggestions and improvements.</p></details>
+        </div>
+        <section class="doc-section">
+          <h2>Report an Issue</h2>
+          <p>If you experience a technical problem, visit our <a href="contact.html#report">Report a Problem</a> section.</p>
+          <h2>Still Need Help?</h2>
+          <p>Contact us at <span class="doc-highlight">[Your Official Email Address]</span> or visit <a href="contact.html#support">Contact Us</a>.</p>
+        </section>
+      </div>
+    </main>
+    <!-- FOOTER START -->
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-brand">
+          <div class="logo">CINE<span>MIX</span></div>
+          <p>All Entertainment. One Destination.</p>
+        </div>
+        <div class="foot-cols">
+          <div>
+            <h4>Explore</h4>
+            <a href="search.html?cat=Movies">Movies</a
+            ><a href="search.html?cat=Anime">Anime</a
+            ><a href="search.html?cat=Cartoons">Cartoons</a
+            ><a href="search.html?cat=Series">Series</a
+            ><a href="search.html?cat=Documentaries">Documentaries</a>
+          </div>
+          <div>
+            <h4>Information</h4>
+            <a href="about.html">About Us</a><a href="contact.html">Contact</a
+            ><a href="privacy-policy.html">Privacy Policy</a
+            ><a href="terms.html">Terms</a
+            ><a href="disclaimer.html">Disclaimer</a
+            ><a href="copyright.html">Copyright Policy</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="help.html">Help Center</a><a href="help.html#faq">FAQ</a
+            ><a href="contact.html#support">Support</a
+            ><a href="contact.html#feedback">Feedback</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="cookie-policy.html">Cookie Policy</a
+            ><a href="community-guidelines.html">Community Guidelines</a>
+          </div>
+          <div>
+            <h4>Follow CINEMIX</h4>
+            <span>Facebook</span><span>Instagram</span><span>X</span>
+          </div>
+        </div>
+        <p class="copy">Copyright &copy; 2026 CINEMIX. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script src="../videos/videos.js"></script>
+    <script src="../videos/episodes.js"></script>
+    <script src="../js/content-data.js"></script>
+    <script src="../account/auth-service.js"></script>
+    <script src="../js/content-navigation.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/account.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/history.js"></script>
+    <script src="../js/site-navigation.js"></script>
+  </body>
+</html>

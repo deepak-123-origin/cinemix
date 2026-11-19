@@ -1,0 +1,63 @@
+Normal videos (movie, cartoon, documentary, short): videos/videos.js
+Episode wale videos (series, anime): videos/episodes.js
+Dono files ke upar comment mein format likha hai. Ek block copy karo, link/title badlo, save karo, refresh karo.
+Thumbnail ke liye video ke "url" ke paas "thumbnail" field mein direct image URL paste karo.
+Example: thumbnail: "https://example.com/my-poster.jpg"
+Series mein har episode ke object ke andar uska apna thumbnail URL de sakte ho.
+Thumbnail optional hai; na dene par YouTube thumbnail automatically use hoga.
+Jis video mein seasons ya episodes likhe hon, CINEMIX use apne aap episode-video detect karke watch page par episode list aur season dropdown dikha deta hai.
+
+Upcoming releases alag file mein add karo: videos/upcoming.js
+UPCOMING_RELEASES list mein ek object copy karke title, release, badge, meta,
+description, image aur imageAlt badlo. Save karke homepage refresh karo.
+Zyada upcoming releases hon toh section ko horizontally scroll kar sakte ho.
+badgeClass optional hai: "" (default), "teal-badge", ya "green-badge".
+Example object:
+{
+  title: "My Upcoming Movie",
+  release: "RELEASING FEB 10",
+  badge: "New Trailer",
+  badgeClass: "teal-badge",
+  meta: "ACTION · SCI-FI",
+  description: "Short movie description.",
+  image: "https://example.com/movie-poster.jpg",
+  imageAlt: "Movie poster"
+}
+
+===== LOCAL MP4 VIDEOS START =====
+Apne MP4 files ko project folder mein rakho (example: videos/my-film.mp4).
+Unki details videos/local-videos.js mein add/update/remove karo; local entries
+YouTube links se alag rehti hain. Path project root ke relative ho, jaise:
+
+{
+  path: "videos/my-film.mp4",
+  thumbnail: "assets/images/posters/my-film.jpg",
+  title: "My Film",
+  type: "movie",
+  year: 2026,
+  genre: "Drama",
+  duration: "1h 30m",
+  rating: 8,
+  added: "2026-11-08",
+  featured: false,
+  description: "Short description."
+}
+
+Episodes ke liye `seasons` ke episode objects mein bhi `path` use karein.
+Local video path MP4 file ka relative path hai; YouTube `url` field use na karein.
+Project ko web server (Live Server) ke through chalayein. Public project folder mein
+rakha MP4 apne URL se access ho sakta hai; frontend deterrents access control nahin hain.
+===== LOCAL MP4 VIDEOS END =====
+
+LINK CHECK: videos/check-links.html ko Live Server se kholo aur 'Check all links' dabao.
+Lal (red) rows ka link galat/private/removed hai, ya owner ne embed band kar rakha hai. Grey thumbnail = YouTube ko woh ID mila hi nahi.
+Header comment ke placeholder links (AAAAAAAAAAA, XXXXXXXXXXX) kabhi use mat karo.
+
+===== VIDEO PLAYER SECURITY START =====
+Player normal MP4 download controls ko show nahin karta, right-click/drag ko suppress karta
+aur supported browsers mein Picture-in-Picture disable karta. Ye basic frontend deterrents
+hain, complete download protection nahin. JavaScript/right-click handling Developer Tools
+ko block nahin karte. Publicly served MP4 ka URL phir bhi directly access ho sakta hai.
+Real access control ke liye future mein server-side authorization aur protected media
+delivery chahiye; abhi koi backend nahin hai.
+===== VIDEO PLAYER SECURITY END =====

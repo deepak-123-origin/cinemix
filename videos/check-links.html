@@ -1,0 +1,226 @@
+<!doctype html>
+<!-- LINK CHECKER PAGE START -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CINEMIX link checker</title>
+    <style>
+      body {
+        font:
+          15px/1.5 "Segoe UI",
+          system-ui,
+          sans-serif;
+        background: #0c0e13;
+        color: #eceff4;
+        margin: 0;
+        padding: 1.2rem;
+      }
+      h1 {
+        font-family: Georgia, serif;
+        margin: 0.2rem 0;
+      }
+      p {
+        color: #9aa3b5;
+        max-width: 70ch;
+      }
+      button {
+        background: #f0a43a;
+        color: #1a1204;
+        border: 0;
+        border-radius: 8px;
+        padding: 0.6rem 1.2rem;
+        font: 600 1rem inherit;
+        cursor: pointer;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      td,
+      th {
+        border-bottom: 1px solid #272c3a;
+        padding: 0.5rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      .ok {
+        color: #3cc2b0;
+      }
+      .bad {
+        color: #ff6b6b;
+        font-weight: 600;
+      }
+      .wait {
+        color: #9aa3b5;
+      }
+      code {
+        background: #151821;
+        padding: 0.1rem 0.4rem;
+        border-radius: 4px;
+      }
+      #host {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        width: 320px;
+        height: 180px;
+      }
+      #sum {
+        margin-top: 1rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CINEMIX link checker</h1>
+    <p>
+      Checks every YouTube link in <code>videos.js</code> and
+      <code>episodes.js</code>. Open this page over <code>http://</code> (Live
+      Server), press the button and wait a few seconds per row. Rows marked red
+      need fixing in your video files: wrong or placeholder link, private or
+      removed video, or embedding turned off by the owner.
+    </p>
+    <button id="go" type="button">Check all links</button>
+    <div id="sum"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Video</th>
+          <th>YouTube ID</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div id="host"></div>
+    <script src="videos.js"></script>
+    <script src="episodes.js"></script>
+    <script src="../js/content-data.js"></script>
+    <script>
+      (function () {
+        var rows = [];
+        CONTENT.forEach(function (c) {
+          if (c.seasons)
+            c.seasons.forEach(function (s) {
+              s.eps.forEach(function (e, i) {
+                rows.push({
+                  name: c.title + " - " + s.name + " E" + (i + 1) + ": " + e.t,
+                  yt: e.yt,
+                });
+              });
+            });
+          else rows.push({ name: c.title, yt: c.yt });
+        });
+        var tb = document.getElementById("rows"),
+          sum = document.getElementById("sum");
+        tb.innerHTML = rows
+          .map(function (r, i) {
+            return (
+              "<tr><td>" +
+              r.name.replace(/</g, "&lt;") +
+              "</td><td><code>" +
+              r.yt +
+              '</code></td><td class="wait" id="s' +
+              i +
+              '">waiting</td></tr>'
+            );
+          })
+          .join("");
+        var why = {
+          2: "Invalid link",
+          5: "Browser could not play it",
+          100: "Not found, private or removed (link wrong?)",
+          101: "Embedding turned off by the owner",
+          150: "Embedding turned off by the owner",
+          153: "Open this page over http://, not as a file",
+        };
+        function check(id, done) {
+          var el = document.createElement("div"),
+            end,
+            finished = false,
+            p;
+          document.getElementById("host").appendChild(el);
+          end = function (ok, msg) {
+            if (finished) return;
+            finished = true;
+            try {
+              p.destroy();
+            } catch (e) {}
+            done(ok, msg);
+          };
+          p = new YT.Player(el, {
+            host: "https://www.youtube-nocookie.com",
+            videoId: id,
+            width: "320",
+            height: "180",
+            playerVars: { controls: 0 },
+            events: {
+              onReady: function () {
+                setTimeout(function () {
+                  end(true, "OK - plays");
+                }, 2500);
+              },
+              onError: function (e) {
+                end(false, why[e.data] || "Error " + e.data);
+              },
+            },
+          });
+          setTimeout(function () {
+            end(false, "No answer (slow network?)");
+          }, 15000);
+        }
+        function run() {
+          var next = 0,
+            active = 0,
+            bad = 0,
+            done = 0;
+          function pump() {
+            while (active < 3 && next < rows.length)
+              (function (i) {
+                active++;
+                var cell = document.getElementById("s" + i);
+                cell.textContent = "checking...";
+                next++;
+                check(rows[i].yt, function (ok, msg) {
+                  active--;
+                  done++;
+                  cell.textContent = msg;
+                  cell.className = ok ? "ok" : "bad";
+                  if (!ok) bad++;
+                  sum.textContent =
+                    done +
+                    " / " +
+                    rows.length +
+                    " checked - " +
+                    bad +
+                    " problem" +
+                    (bad === 1 ? "" : "s");
+                  pump();
+                });
+              })(next);
+          }
+          pump();
+        }
+        var s = document.createElement("script");
+        s.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(s);
+        var ready = false;
+        window.onYouTubeIframeAPIReady = function () {
+          ready = true;
+        };
+        document.getElementById("go").onclick = function () {
+          if (!ready) {
+            sum.textContent =
+              "YouTube is still loading (or blocked). Check your internet and try again.";
+            return;
+          }
+          this.disabled = true;
+          run();
+        };
+      })();
+    </script>
+  </body>
+  <!-- LINK CHECKER PAGE END -->
+</html>
